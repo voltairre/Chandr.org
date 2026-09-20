@@ -15,6 +15,7 @@ qt_add_qml_module(website
     QML_FILES
     Main.qml
     CoatOfArms.qml
+    Zonai.qml
 
     RESOURCES
     assets/blur_full_green_energy.jpg
