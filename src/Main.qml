@@ -16,8 +16,8 @@ Window {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
             anchors.topMargin: 100
-            scale: 3.0
-            color: red
+            scale: 1.0
+            color: "red"
         }
     }
 }
