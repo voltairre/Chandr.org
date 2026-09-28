@@ -15,9 +15,9 @@ Window {
         Zonai {
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
-            anchors.topMargin: 100
-            scale: 1.0
-            color: "red"
+            anchors.topMargin: 80
+            scale: 0.5
+            color: "#ffcbb687"
         }
     }
 }
