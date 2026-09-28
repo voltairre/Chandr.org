@@ -21,7 +21,7 @@ jobs:
 
       - run: qt-cmake -S src -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
       - run: cmake --build build --parallel
-      - run: brotli -5 website.wasm -o build/website.wasm
+      - run: brotli -5 build/website.wasm -o app/website.wasm
       - run: cp build/{qtloader.js,website.js} app
 
       - uses: cloudflare/wrangler-action@v4
