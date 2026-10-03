@@ -1,6 +1,6 @@
 /*
   Cross-Origin-Opener-Policy: same-origin
   Cross-Origin-Embedder-Policy: require-corp
-/website.wasm
+/*.wasm
   Content-Type: application/wasm
   Content-Encoding: br

@@ -13,10 +13,11 @@ Window {
         anchors.fill: parent
 
         Zonai {
-            anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
-            anchors.topMargin: 80
-            scale: 0.5
+            anchors.left: parent.left
+            anchors.topMargin: 10
+            anchors.leftMargin: parent.width/2 - 140
+            scale: 0.2
             color: "#ffcbb687"
         }
     }
