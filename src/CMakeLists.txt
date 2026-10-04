@@ -26,14 +26,14 @@ target_link_libraries(app PRIVATE
 )
 
 target_compile_options(app PRIVATE
-    "$<$<CONFIG:Release>:-Os
-    -flto>"
+    "$<$<CONFIG:Release>:-Os>"
+    "$<$<CONFIG:Release>:-flto>"
 )
 
 target_link_options(app PRIVATE
-    "$<$<CONFIG:Release>:-flto
-    -O0
-    -sWASM_BIGINT
-    -sMAX_WEBGL_VERSION=2
-    -sWEBGL2_BACKWARDS_COMPATIBILITY_EMULATION>"
+    "$<$<CONFIG:Release>:-flto>"
+    "$<$<CONFIG:Release>:-O0>"
+    "$<$<CONFIG:Release>:-sWASM_BIGINT>"
+    "$<$<CONFIG:Release>:-sMAX_WEBGL_VERSION=2>"
+    "$<$<CONFIG:Release>:-sWEBGL2_BACKWARDS_COMPATIBILITY_EMULATION>"
 )
