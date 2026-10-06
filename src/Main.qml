@@ -12,13 +12,13 @@ Window {
         anchors.centerIn: parent
         anchors.fill: parent
 
-        Zonai {
+        CoatOfArms {
+            anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
             anchors.left: parent.left
             anchors.topMargin: 10
-            anchors.leftMargin: parent.width/2 - 140
-            scale: 0.2
-            color: "#ffcbb687"
+            scale: 1.0
+            //color: "#ffcbb687"
         }
     }
 }
