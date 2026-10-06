@@ -5,24 +5,12 @@ import QtQuick.Shapes
 import QtQuick.Effects
 
 Item {
+    id: _qt_node0
     implicitWidth: 418
     implicitHeight: 344
     property color color
-    component AnimationsInfo : QtObject
-    {
-        property bool paused: false
-        property int loops: 1
-        signal restart()
-    }
-    property AnimationsInfo animations : AnimationsInfo {}
-    transform: [
-        Scale { xScale: width / 418.848; yScale: height / 344.656 }
-    ]
-    id: _qt_node0
-    transformOrigin: Item.TopLeft
     Shape {
         id: _qt_node1
-        transformOrigin: Item.TopLeft
         transform: TransformGroup {
             id: _qt_node1_transform_base_group
             Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(0.33628, 0, 0, 0.33628, -11.683, -17.324)}
