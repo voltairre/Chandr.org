@@ -17,6 +17,7 @@ Window {
             anchors.top: parent.top
             anchors.topMargin: 10
             color: "#ffcbb687"
+            scale: 0.9
         }
     }
 }

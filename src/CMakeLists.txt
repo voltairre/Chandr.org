@@ -14,7 +14,6 @@ qt_add_qml_module(app
     URI website
     QML_FILES
     Main.qml
-    CoatOfArms.qml
     Zonai.qml
 
     RESOURCES
