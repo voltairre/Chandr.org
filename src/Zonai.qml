@@ -13,7 +13,7 @@ Item {
         id: _qt_node1
         transform: TransformGroup {
             id: _qt_node1_transform_base_group
-            Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(0.33628, 0, 0, 0.33628, -11.683, -17.324)}
+            Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(0.33628, 0, 0, 0.33628, -13, -17.324)}
         }
         preferredRendererType: Shape.CurveRenderer
         asynchronous: true

@@ -1,11 +1,13 @@
 import QtQuick
 import QtQuick.Shapes
+import Music
 
 Window {
     visible: true
 
+    Music{}
     Image {
-        source: "qrc:/qt/qml/website/assets/blur_full_green_energy.jpg"
+        source: "qrc:/qt/qml/Main/assets/blur_full_green_energy.jpg"
         asynchronous: true
         fillMode: Image.PreserveAspectCrop
         clip: true
@@ -14,10 +16,8 @@ Window {
 
         Zonai {
             anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: parent.top
-            anchors.topMargin: 10
             color: "#ffcbb687"
-            scale: 0.9
+            scale: 0.8
         }
     }
 }

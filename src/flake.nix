@@ -20,6 +20,8 @@
         qt6.wrapQtAppsHook
         makeWrapper
         bashInteractive
+        clang
+        jq
       ];
       shellHook = ''
         export QT_PLUGIN_PATH="${qtEnv}/lib/qt-6/plugins"
