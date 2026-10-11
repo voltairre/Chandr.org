@@ -5,7 +5,11 @@ import Music
 Window {
     visible: true
 
-    Music{}
+    Music{
+        id: music
+        videoId: "1fJQCPMd8pc"
+    }
+
     Image {
         source: "qrc:/qt/qml/Main/assets/blur_full_green_energy.jpg"
         asynchronous: true

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.31.6)
 
 project(website VERSION 1.0 LANGUAGES CXX)
 
-find_package(Qt6 REQUIRED COMPONENTS Quick Network)
+find_package(Qt6 REQUIRED COMPONENTS Quick)
 
 qt_standard_project_setup(REQUIRES 6.11.2)
 
@@ -32,7 +32,6 @@ qt_add_qml_module(Music
 
 target_link_libraries(main PRIVATE
     Qt6::Quick
-    Qt6::Network
     Music
 )
 
