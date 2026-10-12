@@ -14,7 +14,7 @@ class Music: public QObject {
 	Q_PROPERTY(QString author READ author NOTIFY authorChanged)
 	Q_PROPERTY(QString videoId READ videoId WRITE setVideoId NOTIFY videoIdChanged REQUIRED)
 
-	QNetworkAccessManager* manager = nullptr;
+	QNetworkAccessManager *manager = nullptr;
 	QUrl m_url;
 	QString m_title;
 	QString m_author;
@@ -23,13 +23,13 @@ class Music: public QObject {
 	void makeRequest();
 
 public:
-	explicit Music(QObject* parent = nullptr);
+	explicit Music(QObject *parent = nullptr);
 	QUrl url() const;
 	QString title() const;
 	QString author() const;
 	QString videoId() const;
 
-	void setVideoId(const QString& videoId);
+	void setVideoId(const QString &videoId);
 
 	Q_INVOKABLE void refresh();
 
@@ -40,6 +40,6 @@ signals:
 	void videoIdChanged();
 
 private slots:
-	void replyFinished(QNetworkReply* reply);
+	void replyFinished(QNetworkReply *reply);
 	void reFetch();
 };

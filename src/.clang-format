@@ -30,7 +30,7 @@ SpaceBeforeCtorInitializerColon: false
 SpaceBeforeInheritanceColon: false
 SpaceBeforeParens: ControlStatementsExceptControlMacros
 SortIncludes: CaseSensitive
-PointerAlignment: Left
+PointerAlignment: Right
 PackConstructorInitializers: CurrentLine
 LineEnding: LF
 InsertBraces: false

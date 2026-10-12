@@ -19,6 +19,7 @@ qt_add_qml_module(main
 
     RESOURCES
     assets/blur_full_green_energy.jpg
+    assets/times.ttf
 )
 
 qt_add_qml_module(Music

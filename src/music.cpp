@@ -30,24 +30,32 @@ void Music::makeRequest() {
 	}
 }
 
-void Music::replyFinished(QNetworkReply* reply) {
+void Music::replyFinished(QNetworkReply *reply) {
 	QByteArray data = reply->readAll();
 	QJsonDocument doc = QJsonDocument::fromJson(data);
 	QJsonObject obj = doc.object();
-	m_url =
-	    QUrl(obj["streamingData"].toObject()["formats"].toArray()[0].toObject()["url"].toString());
-	emit urlChanged();
+	if (m_url
+	    != QUrl(obj["streamingData"].toObject()["formats"].toArray()[0].toObject()["url"].toString()))
+	{
+		m_url =
+		    QUrl(obj["streamingData"].toObject()["formats"].toArray()[0].toObject()["url"].toString());
+		emit urlChanged();
+	}
 
-	m_title = obj["videoDetails"].toObject()["title"].toString();
-	emit titleChanged();
+	if (m_title != obj["videoDetails"].toObject()["title"].toString()) {
+		m_title = obj["videoDetails"].toObject()["title"].toString();
+		emit titleChanged();
+	}
 
-	m_author = obj["videoDetails"].toObject()["author"].toString().remove(" - Topic");
-	emit authorChanged();
+	if (m_author != obj["videoDetails"].toObject()["author"].toString().remove(" - Topic")) {
+		m_author = obj["videoDetails"].toObject()["author"].toString().remove(" - Topic");
+		emit authorChanged();
+	}
 
 	reply->deleteLater();
 }
 
-Music::Music(QObject* parent): QObject(parent), manager(new QNetworkAccessManager(this)) {
+Music::Music(QObject *parent): QObject(parent), manager(new QNetworkAccessManager(this)) {
 	connect(manager, &QNetworkAccessManager::finished, this, &Music::replyFinished);
 	connect(this, &Music::videoIdChanged, this, &Music::reFetch);
 	makeRequest();
@@ -58,7 +66,7 @@ QString Music::title() const { return m_title; }
 QString Music::author() const { return m_author; }
 QString Music::videoId() const { return m_videoId; }
 
-void Music::setVideoId(const QString& videoId) {
+void Music::setVideoId(const QString &videoId) {
 	if (m_videoId != videoId) {
 		m_videoId = videoId;
 		emit videoIdChanged();
