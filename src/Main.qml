@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Shapes
+import QtQuick.Controls
 import Music
 
 Window {
@@ -7,46 +8,76 @@ Window {
 
     FontLoader {
         id: font
+
         source: "qrc:/qt/qml/Main/assets/times.ttf"
     }
+    FontLoader {
+        id: fontbd
 
-    Music{
+        source: "qrc:/qt/qml/Main/assets/timesbd.ttf"
+    }
+    Music {
         id: music
+
         videoId: "1fJQCPMd8pc"
     }
-
     Image {
-        source: "qrc:/qt/qml/Main/assets/blur_full_green_energy.jpg"
-        asynchronous: true
-        fillMode: Image.PreserveAspectCrop
-        clip: true
         anchors.centerIn: parent
         anchors.fill: parent
+        asynchronous: true
+        clip: true
+        fillMode: Image.PreserveAspectCrop
+        source: "qrc:/qt/qml/Main/assets/blur_full_green_energy.jpg"
 
-        Zonai {
-            id: zonai
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.horizontalCenterOffset: -(0.015 * width + 0.5)
-            color: "#ffcbb687"
-            width: 350
-            height: width
-        }
+        ScrollView {
+            anchors.fill: parent
+            contentHeight: 1000
 
-        Text {
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.top: zonai.bottom
-            anchors.topMargin: 30
-            text: "Hello"
-            font.family: font.name
-            font.pointSize: 50
-            color: "#ffcbb687"
-        }
+            Zonai {
+                id: zonai
 
-        Rectangle {
-            height: parent.height
-            width: 1
-            color: "red"
-            anchors.horizontalCenter: parent.horizontalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.horizontalCenterOffset: -(0.015 * width + 0.5)
+                anchors.top: parent.top
+                color: "#ffcbb687"
+                height: width
+                width: 350
+
+                NumberAnimation on anchors.topMargin {
+                    duration: 1000
+                    easing.type: Easing.OutCubic
+                    from: -325
+                    to: -30
+                }
+                NumberAnimation on opacity {
+                    duration: 1100
+                    easing.type: Easing.OutCubic
+                    from: 0
+                    to: 1
+                }
+            }
+            Text {
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top: zonai.bottom
+                color: "#ffcbb687"
+                font.bold: true
+                font.family: fontbd.name
+                font.pointSize: 30
+                text: "“VERITAS DOMINVS MEVS EST”"
+
+                NumberAnimation on anchors.topMargin {
+                    duration: 1000
+                    easing.type: Easing.OutCubic
+                    from: -400
+                    to: 0
+                }
+                NumberAnimation on opacity {
+                    duration: 1100
+                    easing.type: Easing.OutCubic
+                    from: 0
+                    to: 1
+                }
+            }
         }
     }
 }
