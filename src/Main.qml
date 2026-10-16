@@ -32,16 +32,18 @@ Window {
         source: "qrc:/qt/qml/Main/assets/blur_full_green_energy.jpg"
 
         ScrollView {
+            anchors.centerIn: parent
             anchors.fill: parent
 
+            ScrollBar.vertical: ScrollBar {
+                active: false
+            }
+
             Flickable {
+                anchors.centerIn: parent
                 anchors.fill: parent
                 boundsMovement: Flickable.StopAtBounds
-                contentHeight: zonai.height + title.height
-
-                ScrollBar.vertical: ScrollBar {
-                    policy: ScrollBar.AlwaysOff
-                }
+                contentHeight: zonai.height + title.height - 50
 
                 Zonai {
                     id: zonai
@@ -76,7 +78,9 @@ Window {
                     font.family: fontbd.name
                     font.pointSize: 30
                     fontSizeMode: Text.HorizontalFit
+                    horizontalAlignment: Text.AlignHCenter
                     text: "“VERITAS DOMINVS MEVS EST”"
+                    width: parent.width - 20
 
                     NumberAnimation on anchors.topMargin {
                         duration: 1000
