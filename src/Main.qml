@@ -22,6 +22,8 @@ Window {
         videoId: "1fJQCPMd8pc"
     }
     Image {
+        id: bg
+
         anchors.centerIn: parent
         anchors.fill: parent
         asynchronous: true
@@ -31,51 +33,63 @@ Window {
 
         ScrollView {
             anchors.fill: parent
-            contentHeight: 1000
 
-            Zonai {
-                id: zonai
+            Flickable {
+                anchors.fill: parent
+                boundsMovement: Flickable.StopAtBounds
+                contentHeight: zonai.height + title.height
 
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.horizontalCenterOffset: -(0.015 * width + 0.5)
-                anchors.top: parent.top
-                color: "#ffcbb687"
-                height: width
-                width: 350
-
-                NumberAnimation on anchors.topMargin {
-                    duration: 1000
-                    easing.type: Easing.OutCubic
-                    from: -325
-                    to: -30
+                ScrollBar.vertical: ScrollBar {
+                    policy: ScrollBar.AlwaysOff
                 }
-                NumberAnimation on opacity {
-                    duration: 1100
-                    easing.type: Easing.OutCubic
-                    from: 0
-                    to: 1
-                }
-            }
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                anchors.top: zonai.bottom
-                color: "#ffcbb687"
-                font.bold: true
-                font.family: fontbd.name
-                font.pointSize: 30
-                text: "“VERITAS DOMINVS MEVS EST”"
 
-                NumberAnimation on anchors.topMargin {
-                    duration: 1000
-                    easing.type: Easing.OutCubic
-                    from: -400
-                    to: 0
+                Zonai {
+                    id: zonai
+
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.horizontalCenterOffset: -(0.015 * width + 0.5)
+                    anchors.top: parent.top
+                    color: "#ffcbb687"
+                    height: width
+                    width: parent.width <= 350 ? parent.width - 10 : 350
+
+                    NumberAnimation on anchors.topMargin {
+                        duration: 1000
+                        easing.type: Easing.OutQuart
+                        from: -325
+                        to: -30
+                    }
+                    NumberAnimation on opacity {
+                        duration: 1500
+                        easing.type: Easing.OutCubic
+                        from: 0
+                        to: 1
+                    }
                 }
-                NumberAnimation on opacity {
-                    duration: 1100
-                    easing.type: Easing.OutCubic
-                    from: 0
-                    to: 1
+                Text {
+                    id: title
+
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: zonai.bottom
+                    color: "#ffcbb687"
+                    font.bold: true
+                    font.family: fontbd.name
+                    font.pointSize: 30
+                    fontSizeMode: Text.HorizontalFit
+                    text: "“VERITAS DOMINVS MEVS EST”"
+
+                    NumberAnimation on anchors.topMargin {
+                        duration: 1000
+                        easing.type: Easing.OutQuart
+                        from: -400
+                        to: 0
+                    }
+                    NumberAnimation on opacity {
+                        duration: 1500
+                        easing.type: Easing.OutCubic
+                        from: 0
+                        to: 1
+                    }
                 }
             }
         }
