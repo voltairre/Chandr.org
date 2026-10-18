@@ -14,6 +14,7 @@ jobs:
           host: 'all_os'
           target: 'wasm'
           arch: 'wasm_multithread'
+          modules: 'qtnetwork qtmultimedia'
 
       - uses: emscripten-core/setup-emsdk@v15
         with:
