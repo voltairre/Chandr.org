@@ -1,6 +1,7 @@
 import QtQuick
 import QtQuick.Shapes
 import QtQuick.Controls
+import QtMultimedia
 import Music
 
 Window {
@@ -19,7 +20,13 @@ Window {
     Music {
         id: music
 
-        videoId: "1fJQCPMd8pc"
+        videoId: "y6lfK3bH4z8"
+    }
+    MediaPlayer {
+        id: player
+
+        source: music.url
+        videoOutput: video
     }
     Image {
         id: bg
@@ -43,7 +50,7 @@ Window {
                 anchors.centerIn: parent
                 anchors.fill: parent
                 boundsMovement: Flickable.StopAtBounds
-                contentHeight: zonai.height + title.height - 50
+                contentHeight: zonai.height + title.height - 30
 
                 Zonai {
                     id: zonai
@@ -93,6 +100,38 @@ Window {
                         easing.type: Easing.OutCubic
                         from: 0
                         to: 1
+                    }
+                }
+                Rectangle {
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: title.bottom
+                    color: "black"
+                    height: width / 4
+                    radius: 30
+                    width: parent.width <= 700 ? parent.width - 20 : 700
+
+                    NumberAnimation on anchors.topMargin {
+                        duration: 1000
+                        easing.type: Easing.OutQuart
+                        from: 0
+                        to: 20
+                    }
+                    NumberAnimation on opacity {
+                        duration: 1500
+                        easing.type: Easing.OutCubic
+                        from: 0
+                        to: 1
+                    }
+
+                    VideoOutput {
+                        id: video
+
+                        anchors.fill: parent
+                    }
+                    MouseArea {
+                        anchors.fill: parent
+
+                        onClicked: player.play()
                     }
                 }
             }

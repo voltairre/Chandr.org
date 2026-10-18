@@ -6,10 +6,11 @@
     nixpkgs,
   }: let
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
-    qtEnv = pkgs.qt6.env "qt6-simc-${pkgs.qt6.qtbase.version}" [
-      pkgs.qt6.qtbase
-      pkgs.qt6.qtdeclarative
-    ];
+    qtEnv = pkgs.qt6.env "qt6-simc-${pkgs.qt6.qtbase.version}" (with pkgs; [
+      qt6.qtbase
+      qt6.qtdeclarative
+      qt6.qtmultimedia
+    ]);
   in {
     devShells.x86_64-linux.default = pkgs.mkShell {
       buildInputs = with pkgs; [
