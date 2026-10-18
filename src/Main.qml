@@ -50,7 +50,7 @@ Window {
                 anchors.centerIn: parent
                 anchors.fill: parent
                 boundsMovement: Flickable.StopAtBounds
-                contentHeight: zonai.height + title.height - 30
+                contentHeight: zonai.height + title.height + musicPlayer.height - 30
 
                 Zonai {
                     id: zonai
@@ -103,6 +103,7 @@ Window {
                     }
                 }
                 Rectangle {
+                    id: musicPlayer
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: title.bottom
                     color: "black"
