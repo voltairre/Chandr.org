@@ -7,14 +7,14 @@
 
 void Music::makeRequest() {
 	QUrl url(
-	    "https://www.youtube.com/youtubei/v1/"
+	    "https://proxy.corsfix.com/www.youtube.com/youtubei/v1/"
 	    "player?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8"
 	);
 	QNetworkRequest request(url);
 
 	request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
-	QJsonObject json0 {{"clientName", "WEB"}, {"clientVersion", "2.20261016.01.00"}};
+	QJsonObject json0 {{"clientName", "ANDROID"}, {"clientVersion", "21.26.364"}};
 
 	QJsonObject json1 {{"client", json0}};
 
@@ -30,7 +30,6 @@ void Music::replyFinished(QNetworkReply *reply) {
 	QByteArray data = reply->readAll();
 	QJsonDocument doc = QJsonDocument::fromJson(data);
 	QJsonObject obj = doc.object();
-    qDebug().noquote() << data;
 	if (m_url
 	    != QUrl(obj["streamingData"].toObject()["formats"].toArray()[0].toObject()["url"].toString()))
 	{
