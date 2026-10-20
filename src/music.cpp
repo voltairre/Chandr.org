@@ -13,6 +13,7 @@ void Music::makeRequest() {
 	QNetworkRequest request(url);
 
 	request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+	request.setRawHeader("Origin", "http://localhost");
 
 	QJsonObject json0 {{"clientName", "ANDROID"}, {"clientVersion", "21.26.364"}};
 
@@ -28,6 +29,7 @@ void Music::makeRequest() {
 
 void Music::replyFinished(QNetworkReply *reply) {
 	QByteArray data = reply->readAll();
+	qDebug().noquote() << data;
 	QJsonDocument doc = QJsonDocument::fromJson(data);
 	QJsonObject obj = doc.object();
 	if (m_url
