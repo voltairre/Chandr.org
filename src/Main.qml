@@ -50,7 +50,7 @@ Window {
                 anchors.centerIn: parent
                 anchors.fill: parent
                 boundsMovement: Flickable.StopAtBounds
-                contentHeight: zonai.height + title.height + musicPlayer.height
+                contentHeight: zonai.height + title.height + musicPlayer.height - 30
 
                 Zonai {
                     id: zonai
