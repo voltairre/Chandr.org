@@ -7,12 +7,12 @@
 
 void Music::makeRequest() {
 	QUrl url(
-	    "https://cors.chandr.org/?url=https://www.youtube.com/youtubei/v1/player?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8"
+	    "https://cors.chandr.org/?url=https://www.youtube.com/youtubei/v1/"
+	    "player?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8"
 	);
 	QNetworkRequest request(url);
 
 	request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-	//request.setRawHeader("Origin", "http://localhost");
 
 	QJsonObject json0 {{"clientName", "ANDROID"}, {"clientVersion", "21.26.364"}};
 
@@ -28,7 +28,6 @@ void Music::makeRequest() {
 
 void Music::replyFinished(QNetworkReply *reply) {
 	QByteArray data = reply->readAll();
-	qDebug().noquote() << data;
 	QJsonDocument doc = QJsonDocument::fromJson(data);
 	QJsonObject obj = doc.object();
 	if (m_url
