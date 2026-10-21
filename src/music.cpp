@@ -28,6 +28,7 @@ void Music::makeRequest() {
 
 void Music::replyFinished(QNetworkReply *reply) {
 	QByteArray data = reply->readAll();
+    qDebug().noquote() << data;
 	QJsonDocument doc = QJsonDocument::fromJson(data);
 	QJsonObject obj = doc.object();
 	if (m_url
