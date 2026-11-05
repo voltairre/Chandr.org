@@ -14,15 +14,17 @@
   in {
     devShells.x86_64-linux.default = pkgs.mkShell {
       buildInputs = with pkgs; [
-        qtEnv
-        qt6.qtbase
-        cmake
-        gcc
-        qt6.wrapQtAppsHook
-        makeWrapper
         bashInteractive
         clang
+        cmake
+        ffmpeg
+        gcc
         jq
+        makeWrapper
+        qt6.qtbase
+        qt6.wrapQtAppsHook
+        qtEnv
+        yt-dlp
       ];
       shellHook = ''
         export QT_PLUGIN_PATH="${qtEnv}/lib/qt-6/plugins"

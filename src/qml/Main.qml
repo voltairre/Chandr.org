@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Shapes
 import QtQuick.Controls
 import QtMultimedia
-import Music
 
 Window {
     visible: true
@@ -17,15 +16,10 @@ Window {
 
         source: "qrc:/qt/qml/Main/assets/timesbd.ttf"
     }
-    Music {
-        id: music
-
-        videoId: "y6lfK3bH4z8"
-    }
     MediaPlayer {
         id: player
 
-        source: music.url
+        source: "qrc:/qt/qml/Main/music"
         videoOutput: video
     }
     Image {
@@ -104,6 +98,7 @@ Window {
                 }
                 Rectangle {
                     id: musicPlayer
+
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: title.bottom
                     color: "black"
