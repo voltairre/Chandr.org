@@ -19,7 +19,7 @@ Window {
     MediaPlayer {
         id: player
 
-        source: "https://chandr.org/music"
+        source: "https://chandr.org/music.mp4"
         videoOutput: video
     }
     Image {
