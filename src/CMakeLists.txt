@@ -21,7 +21,6 @@ qt_add_qml_module(main
     assets/blur_full_green_energy.jpg
     assets/times.ttf
     assets/timesbd.ttf
-    music
 
 )
 

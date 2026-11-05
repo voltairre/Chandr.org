@@ -19,7 +19,7 @@ Window {
     MediaPlayer {
         id: player
 
-        source: "qrc:/qt/qml/Main/music"
+        source: "https://chandr.org/music"
         videoOutput: video
     }
     Image {
